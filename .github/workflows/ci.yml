@@ -1,0 +1,21 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+
+    - name: Compile and Test
+      run: |
+        mkdir -p bin
+        javac -cp .:junit-platform-console-standalone-1.9.0.jar -d bin src/*.java test/*.java
+        java -jar junit-platform-console-standalone-1.9.0.jar --class-path bin --scan-class-path
