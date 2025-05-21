@@ -1,4 +1,10 @@
+package com.ontrack.test;
+
 import org.junit.jupiter.api.Test;
+
+import com.ontrack.main.OnTrackTaskService;
+import com.ontrack.main.Task;
+
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
